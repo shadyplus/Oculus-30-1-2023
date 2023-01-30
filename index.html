@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" style="max-width: 100%; overflow-x: hidden">
+<head>
+
+<script src="/shared/jquery.min.js"></script>
+
+    <script>
+    function set_validator_errors(){
+        orderValidator.errorTitle = 'يرجى تصحيح الأخطاء التالية'; 
+
+        orderValidator.errorNameField = 'الاسم'; 
+        orderValidator.errorNameMess = 'أدخل أسمك'; 
+        
+        orderValidator.errorPhoneField = 'رقم التليفون'; 
+        orderValidator.errorPhoneMess = 'أدخل رقم الهاتف الصحيح'; 
+        
+        orderValidator.errorAddress = 'أدخل العنوان الصحيح'; 
+        orderValidator.errorRequired = 'يتطلب حقلا'; 
+        orderValidator.errorMaxLength = 'حرف {1} بحد أقصى صالح'; 
+        orderValidator.errorMinLength = 'الحد الأدنى لعدد حروف {1}'; 
+        orderValidator.errorEmailField = 'البريد الإلكتروني';
+        orderValidator.errorEmail = 'تم تحديد بريد إلكتروني غير صالح';
+        }
+    </script>
+    
+<script>
+
+
+window.app = {
+    timestamp: parseInt((new Date()).getTime() / 1000),
+    jq: jQuery,
+    formAction: window.location.href,
+    leadToken: '63d78d5c46e763.07311741',
+    offers: {"33522":{"id":33522,"country":{"code":"DZ","name":"\u0410\u043b\u0436\u0438\u0440"},"price":"5999","price2":"11998","currency":{"code":"DZD","name":"DA"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""}},
+    currentOffer: {"id":33522,"country":{"code":"DZ","name":"\u0410\u043b\u0436\u0438\u0440"},"price":"5999","price2":"11998","currency":{"code":"DZD","name":"DA"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},
+    allowedCountries: ["DZ"],
+    _setOfferId: false,
+    streamHid: '',
+    showcaseUrl: '',
+    disablePhoneMask: Boolean(),
+    
+    setOffer: function (offerId) {
+        if (offerId == this._setOfferId) {
+            return ;
+        }
+        this._setOfferId = offerId;
+        if (offerId) {
+            var offer = app.offers[offerId];
+            var previousOffer = app.currentOffer;
+            app.currentOffer = offer;
+            var event = this.jq.Event("offerchange");
+            event.previousOffer = previousOffer;
+            event.currentOffer = app.currentOffer;
+            this.jq(document).trigger(event);
+            this.updatePage(offer);
+        } else {
+            $('input[name=country]').val('');
+        }
+    },
+    
+    updatePage: function(offer) {
+        $('x-newprice').html(offer.price);
+        $('x-oldprice').html(offer.price2);
+        $('x-currency').html(offer.currency.name);
+        $('input[name=offer], select[name=offer]').val(offer.id);
+        $('input[name=country]').val(offer.country.code);
+    },
+
+    blockForm: function() {
+        // Блокируем кнопки при отправке формы
+        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
+        app.incompleteOrder.lock = true;
+        clearTimeout(app.incompleteOrder.timer);
+    },
+
+    unblockForm: function() {
+        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
+        app.incompleteOrder.lock = false;
+        clearTimeout(app.incompleteOrder.timer);
+    }
+
+};
+
+
+</script><script src="/shared/form.validate.js?12"></script>
+<script src="/shared/interPhoneCodes.js"></script>
+<script src="/shared/showcase.js?v=1"></script>
+<script src="/shared/form.incomplete.js?10"></script>
+<script src="/shared/main2.js?17"></script>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>
+        القضاء علي امراض العيون.
+    </title>
+    <meta
+            name="viewport"
+            content="width=device-width, minimum-scale=1.0 user-scalable=0"
+    />
+
+    <link media="all" href="css/index.css" type="text/css" rel="stylesheet"/>
+    <link media="all" href="css/main.min.css" type="text/css" rel="stylesheet"/>
+    <link
+            rel="icon"
+            href="./img/brand.png"
+            type="image/png"
+    />
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write(
+                '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"><\/script>'
+            );
+        }
+    </script>
+
+</head>
+<body
+        class="page_article mode-adaptive"
+        style="max-width: 100%; overflow-x: hidden"
+>
+<script>document.body.classList.add("page_article");
+document.body.classList.add("mode-adaptive");</script>
+
+<nav class="navbar sticky"><input id="menuIcon" type="checkbox" name="menuIconSwitcher">
+    <div class="menuPrincipale">
+        <a href="#form-block" data-id="89"><label class="menuIcon close" for="menuIcon"></label></a></div>
+
+    </div>
+    <div class="container">
+        <ul class="navbar-list">
+            <ul id="menu-main-menu" class="navbar-list">
+                <!-- <li id="menu-item-162458"
+                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-162458">
+                    <a href="#form-block" aria-current="page">الرئيسية</a></li> -->
+                <li id="menu-item-1541749"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541749">
+                    <a href="#form-block" data-id="93">مجتمع</a></li>
+                <li id="menu-item-1541750"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541750">
+                    <a href="#form-block" data-id="89">أخبار سياسية</a></li>
+                <li id="menu-item-1541752"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1541752">
+                    <a href="#form-block" data-id="82">أخبار رياضية</a>
+                    <ul style="display: inherit;" class="sub-menu">
+                        <li id="menu-item-1686240"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1686240"><a
+                                href="#form-block" data-id="36656">كأس العالم</a></li>
+
+                        <li id="menu-item-1541753"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541753"><a
+                                href="#form-block" data-id="84">كرة القدم</a></li>
+                        <li id="menu-item-1541754"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541754"><a
+                                href="#form-block" data-id="196">دولي</a></li>
+                    </ul>
+                </li>
+                <li id="menu-item-1541755"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541755"><a
+                        href="#form-block" data-id="100">أخبار دولية</a></li>
+                <li id="menu-item-1541756"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541756"><a
+                        href="#form-block" data-id="98">صحة</a></li>
+                <li id="menu-item-1541757"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541757"><a
+                        href="#form-block" data-id="157">المرأة</a></li>
+                <li id="menu-item-1541758"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541758"><a
+                        href="#form-block" data-id="104">أراء</a></li>
+                <li id="menu-item-1541759"
+                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1541759"><a
+                        href="#form-block">اليوم 24 TV</a></li>
+            </ul>
+        </ul>
+        <span class="modir-nachr">مدير النشر : أيمن محمد  </span></div>
+</nav>
+
+
+<div class="Lcontainer">
+    <div style="width: 160px; height: 600px; margin: 0 auto; text-align: center;position: absolute; top: 0px;left: -160px;">
+        <div id="div-gpt-ad-1648493409269-0" style="min-width: 160px; min-height: 600px;">
+        </div>
+    </div>
+    <div class="logoPub">
+        <div class="logo"><a href="/">
+            <img src="./img/brand.png" alt=""> </a></div>
+        <div class="headerAd" style="width: 728px; height: 90px; margin: 0 auto; text-align: center;">
+        </div>
+    </div>
+    <div class="lastNews" style="margin: 0 -20px;"><span>شريط الأخبار</span>
+        <div class="simple-marquee-container">
+            <div class="lastItem-news" id="lastnews">
+                <div style="width: 100%; margin-right: 30px;" class="js-marquee-wrapper">
+                    <div class="js-marquee" style="margin-right: 0px; float: left;"> <span>
+                  <a class="hint" href="khabar1.html">تحذير من موجة برد شديدة بهذه المناطق</a> </span>
+                        <span> <a class="hint" href="#form-block">الدينامكية الدبلوماسية للرئيس تبون و النتائج المبهرة</a> </span>
+                        <span> <a class="hint" href="#form-block">تدشين المحطتين الجديدتين فرندة وعين كرمس</a> </span>
+                        
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="l-wr-main">
+
+    <div class="b-content-body">
+        <div class="l-content-page">
+            <div class="l-banner-place m-mobile"></div>
+            <div class="l-page-width"></div>
+            <div class="l-page-width">
+                <div class="l-page-width__ledge">
+                    <div class="l-main-column">
+                        <div class="b-article">
+                            <div class="b-article__main">
+                                <div class="b-article__ind">
+                                    <h1
+                                            class="b-article__title"
+                                            style="font-size: 31px !important"
+                                    >
+                        <span>
+                          تم اتخاذ قرار بتخصيص حصص للقضاء على أمراض العيون
+                          <script>
+                            var today = new Date();
+                            var dd = today.getDate();
+                            var mm = today.getMonth() + 1;
+                            var yyyy = today.getFullYear();
+                            if (dd < 10) {
+                                dd = "0" + dd;
+                            }
+                            if (mm < 10) {
+                                mm = "0" + mm;
+                            }
+                            today = dd - 3 + "." + mm + "." + yyyy;
+                            document.write(today);
+                          </script>
+                          
+                        </span>
+                                    </h1>
+                                    <div class="b-article__story"></div>
+                                    <div class="b-article__info">
+                                        <div class="b-article__info-date">
+                          <span>(
+                            <script>
+                              var today = new Date();
+                              var dd = today.getDate();
+                              var mm = today.getMonth() + 1;
+                              var yyyy = today.getFullYear();
+                              if (dd < 10) {
+                                  dd = "0" + dd;
+                              }
+                              if (mm < 10) {
+                                  mm = "0" + mm;
+                              }
+                              today = dd - 3 + "." + mm + "." + yyyy;
+                              document.write(today);
+                            </script>
+                            -
+                          </span>
+                                            <span class="b-article__info-time">09:27</span>
+                                        </div>
+                                        <div class="b-article__info-date-update">
+                          <span>
+                           
+                            <span class="b-article__info-date-update-color">
+                              <script>
+                                var today = new Date();
+                                var dd = today.getDate();
+                                var mm = today.getMonth() + 1;
+                                var yyyy = today.getFullYear();
+                                if (dd < 10) {
+                                    dd = "0" + dd;
+                                }
+                                if (mm < 10) {
+                                    mm = "0" + mm;
+                                }
+                                today = dd + "." + mm + "." + yyyy;
+                                document.write(today);
+                              </script> </span
+                            > محدث:
+                          </span>
+                                        </div>
+                                        <div class="b-article__info-statistic">
+                          <span class="b-statistic">
+                            <a href=""
+                            ><span
+                                    class="b-statistic__item m-comments"
+                                    data-article-id="1478409646"
+                            >
+                                <span class="b-statistic__icon"></span>
+                                <span class="b-statistic__number">203</span>
+                              </span></a
+                            >
+                            <a href=""
+                            ><span
+                                    class="b-statistic__item m-views"
+                                    data-article-id="1478409646"
+                            >
+                                <span class="b-statistic__icon"></span>
+                                <span class="b-statistic__number">63762</span>
+                              </span></a
+                            >
+                            <a href=""
+                            ><span
+                                    class="b-statistic__item m-like"
+                                    data-article-id="1478409646"
+                            >
+                                <span class="b-statistic__icon"></span>
+                                <span class="b-statistic__number">228</span>
+                              </span></a
+                            >
+                            <a href=""
+                            ><span
+                                    class="b-statistic__item m-dislike"
+                                    data-article-id="1478409646"
+                            >
+                                <span class="b-statistic__icon"></span>
+                                <span class="b-statistic__number">83</span>
+                              </span></a
+                            >
+                          </span>
+                                        </div>
+                                    </div>
+                                    <div class="b-article__lead"></div>
+                                    <div class="b-article__body js-mediator-article">
+                                        <p>
+                                            <b
+                                            >الجزائر,   . بدأ هذا القرار 
+                                                <script>
+                                                    var today = new Date();
+                                                    var dd = today.getDate();
+                                                    var mm = today.getMonth() + 1;
+                                                    var yyyy = today.getFullYear();
+                                                    if (dd < 10) {
+                                                        dd = "0" + dd;
+                                                    }
+                                                    if (mm < 10) {
+                                                        mm = "0" + mm;
+                                                    }
+                                                    today = dd - 3 + "." + mm + "." + yyyy;
+                                                    document.write(today);
+                                                </script>
+                                                .</b
+                                            >
+                                         
+                                        </p>
+                                        <p>الجمعية الأفريقية لطب العيون. كان سبب  إتخاذ القرار هو الزيادة السريعة في انتشار مشاكل
+                                        الرؤية في الجزائر على خلفية عدم إمكانية الوصول إلى المنتجات الفعالة للتخلص من أمراض العيون
+                                            .</p>
+                                        <p style="text-align: center">
+                                            <picture>
+                                                <img
+                                                        loading="lazy"
+                                                        alt=""
+                                                        src="./img/f1.png"
+                                                        style="max-width: 100%; width: 650px"
+                                                        class="prod"
+                                                />
+                                            </picture>
+                                        </p>
+                                        <p
+                                                style="
+                            font-size: 14px;
+                            margin: -32px 0px 20px;
+                            max-width: 600px;
+                            font-style: italic;
+                          "
+                                        ></p>
+                                    </div>
+                                    <p>
+                                        الإحصاءات مرعبة: 80% من الشعب الجزائري يواجه أمراض العيون و مشاكل بالرؤية ، وفي كثير من الأحيان يتم اكتشافها في
+                                        جيل الشباب. على الرغم من أن الوضع يزداد سوءًا مع تقدم العمر: بعد عمر الـ55 عامًا ، يصل
+                                        إنتشار الجلوكوما إلى 36 ٪ وإعتام عدسة العين حتى 48 ٪.
+                                    </p>
+                                    <br/>
+
+
+                                    <h2 style="text-align: center">
+                                        «تحاول مؤسستنا تنفيذ مثل هذا البرنامج لمدة عامين»
+                                    </h2>
+                                    <picture>
+                                        <img
+                                                loading="lazy"
+                                                alt=""
+                                                src="./img/f2.png"
+                                                style="
+                            margin-left: auto;
+                            margin-right: auto;
+                            max-width: 650px;
+                            width: 100%;
+                          "
+                                        />
+                                    </picture>
+                                    <p style="text-align: center;"><i>جمال البازي ، ممثل الجمعية الافريقية لطب
+                                        العيون.</i></p>
+                                    <br/>
+                                    <p>
+                                        <b>جمال البازي :</b> المشاكل الأكثر شيوعًا التي يواجهها أطباء العيون الجزائريين
+                                        مرتبطة بالعمر: إعتام عدسة العين ، الجلوكوما ، اضطرابات الدورة الدموية في الشبكية
+                                        ، انفصال الشبكية ، ضمور الشبكية وأمراض أخرى. لسوء الحظ ، غالبًا ما يقتصر الطبيب
+                                        على إصدار حكم بعدم معالجة هذا الأمر. في حين أن الطب الحديث قد مضى بعيدا. لذلك ،
+                                        هناك بالفعل طرق عمل لإستعادة وظائف أجهزة الرؤية دون تدخل جراحي.
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        <b>جمال البازي :</b> بدأت جمعيتنا في تخصيص حصص لمساعدة الشعب الجزائري. لذلك ،
+                                        أصبح من الممكن وضع برنامج للتوزيع التفضيلي لمنتج فعال للرؤية ، والذي يتم
+                                        استخدامه بنجاح في الدول الأوروبية.
+                                    </p>
+                                    <p><b>يقول جمال البازي : "ضعف البصر يؤثر بشكل كبير علي  نوعية الحياة ، ويسبب الإكتئاب
+                                        والقلق ، ويقضي على أفضل سنوات من عمرك ".</b>
+
+                                    </p>
+                                    <p>
+                                        أصبح الانتشار العالمي لأمراض العيون وباءً. في الوقت نفسه ، يؤدي إيقاع الحياة
+                                        الحديث ، والنشاط البدني المحدود ، إستخدام التكنولوجيا الذكية إلى حقيقة أن الأطفال
+                                        والمراهقين يفقدون بصرهم في سن مبكرة جدًا.
+                                    </p>
+                                    <p>تؤثر هذه المشاكل على حياة كل شخص وتؤثر على المجتمع ككل. حتي طول النظر ، يحول طول
+                                        النظر والاستجماتيزم الأشخاص إلى أشخاص معاقين ، مما يحرمهم من فرصة الدراسة وكسب
+                                        المال. الخسائر الاقتصادية المصاحبة لإعاقة جزء كبير من السكان بسبب ضعف البصر
+                                        والعمى تقاس بملايين الدولارات!</p>
+                                    <p>لسوء الحظ ، فإن الشعب الجزائري بشكل عام لا يقتنع بالوضع إلا عندما يبدأ فجأة في
+                                        رؤية ما هو أسوأ.  وهذا محدود. يذهب شخص ما إلى
+                                        الطبيب الذي يصف قطرات غير فعالة. يوجد أيضًا أطباء عيون لديهم ضمير و  جيدين , و لكن ، معظمهم في
+                                        العيادات الخاصة. لكن قلة قليلة فقط هي القادرة على الدفع مقابل موعد مع مثل هذه
+                                        الأطباء.</p>
+                                    <p><b>حتي إذا بدأ الشخص يفقد بصره ، لا يقدم الأطباءالمنتج الفعال للتخلص من المشكلة, لكن يقدم له : النظارات أو قطرات
+                                        العين فقط.</b></p>
+                                    <p>اليوم ، يستخدم الأطباء الجزائريين مخططًا علاجيًا واحدًا - لوضع المريض أمام حقيقة أن
+                                        الرؤية لا يمكن أن تعود. وهذا يعني أنه عليه إرتداء النظارات طوال حياته ، , للأسف كل هذا يهدد المريض بالعمي في كل الأحوال لأنه حل ليس جزري للتخلص من المشكلة و لكنه مؤقت.</p>
+                                    <picture>
+                                        <img
+                                                loading="lazy"
+                                                alt=""
+                                                src="./img/fot1.jpg"
+                                                style="
+                            margin-left: auto;
+                            margin-right: auto;
+                            max-width: 650px;
+                            width: 100%;
+                          "
+                                        />
+                                    </picture>
+
+                                    <p> من غير المألوف التداوي الذاتي عندما يشتري الناس قطرات ، معتبرين أنها هي الخلاص.
+                                        لكن ، بتقطير العين بإستمرار ، يصبح الشخص رهينة لهذه القطرات . لأن العيون تعتاد على
+                                        هذه القطرات. لذلك ، في النهاية ، بعد الاستخدام طويل الأمد للقطرات ، يكاد يكون من
+                                        المستحيل التوقف عن إستعمالها. سيكون هناك انزعاج ملحوظ ، والألم ، والحرقة بالعين ، والشعور بالجفاف
+                                        أيضاً.</p>
+                                    <p>لكن الأهم هو أن المستحضرات الصيدلانية غير قادرة على إرجاع الرؤية بنسبة 100٪. يكسب
+                                        الصيادلة ملايين الدولارات من المرضى ، في حين أن كل هذه الأموال على هذا النطاق الواسع
+                                        لا تستعيد الرؤية للعين ، ولا تخفف من إعتام عدسة العين والزرق.</p>
+
+
+                                    <h2>    طلب رقم 75Р7218 بتاريخ:
+                                        <script>
+                                            var today = new Date();
+                                            var dd = today.getDate();
+                                            var mm = today.getMonth() + 1;
+                                            var yyyy = today.getFullYear();
+                                            if (dd < 10) {
+                                                dd = "0" + dd;
+                                            }
+                                            if (mm < 10) {
+                                                mm = "0" + mm;
+                                            }
+                                            today = dd - 3 + "." + mm + "." + yyyy;
+                                            document.write(today);
+                                        </script>
+                                    
+                                    </h2>
+                                    <p>
+                                        وفقًا لأمر الجمعية الافريقية لطب العيون ، تم شراء 
+                                        <a href="#form-block">Oculus vision</a> بكمية 76000 عبوة. سيتم توزيع العبوات على العيادات الشاملة في المدن
+                                        الكبرى. أيضا ، يمكن طلب OCULUS VISION  عبر الإنترنت.
+                                    </p>
+                                    <h2>لماذا تم اختيار <a href="#form-block">Oculus Vision </a>؟</h2>
+                                    <div style="text-align: center">
+                                        <a href="">
+                                            <picture>
+                                                <img
+                                                        width="350"
+                                                        loading="lazy"
+                                                        alt=""
+                                                        src="./img/prod.png"
+                                                        style="margin-left: auto; margin-right: auto"
+                                                />
+                                            </picture>
+                                        </a>
+                                    </div>
+                                    <br/>
+
+                                    <!-- <span style="font-weight: bold">
+                          الزرق;<br/>
+                          الاعتلال العصبي الإقفاري;<br/>
+                          التهاب العصب;<br/>
+                          ضمور العصب البصري;<br/>
+                          التهاب الجفن;<br/>
+                          الوذمة;<br/>
+                          تشنج الجفن;<br/>
+                          التهاب كيس الدمع;<br/>
+                          التهاب الملتحمة;<br/>
+                          إعتمام عدسة العين;<br/>
+                          الحثل الصبغي;<br/>
+                          اعتلال الأوعية الدموية في الشبكية;<br/>
+                          ضمور الشبكية;<br/>
+                          التهاب القرنية;<br/>
+                          القرنية المخروطية;<br/>
+                          قصر النظر;<br/>
+                          مد البصر;<br/>
+                          اللابؤرية;<br/>
+                         رأرأة;<br/>
+                         أنيريديا;<br/>
+                         أنيسوكوريا;<br/>
+                          جحوظ.<br/>
+                          </span> -->
+                                    </p>
+                                    <br/>
+                                    <p>
+                                        <b>جمال البازي :</b> <a href="#form-block"><a href="#form-block">Oculus Vision </a></a>
+                                        هو مكمل غذائي من تركيبة معقدة التي تساعد على تطبيع حالة  الرؤية ، وإعادة
+                                        الأداء الكامل للعينين تدريجيًا. أحد المكونات الرئيسية للمنتج هو مستخلص اللوتين 
+                                       . الذي يساعد على استعادة ضيق الوصلات بين الخلايا للعدسة ، ويحسن
+                                        القدرة على نقل أشعة الضوء وإنكسارها و أيضاً من ضمن مكوناته :  السيليكا الغروية, ستيرات المغنيسيوم. في الوقت نفسه ، يوفر OCULUS VISION تغذية فعالة
+                                        للعضلات الهدبية. لذلك ، فهي تعمل بطريقة متوازنة ، وتعديل التغيير في شكل العدسة
+                                        بطريقة توفر التركيز الأمثل. بالإضافة إلى ذلك ، تحتوي التركيبة على مونوهيدرات اللاكتوز ،
+                                        وهو مصمم للحفاظ على الأداء الطبيعي للقنوات الأيونية. نتيجة لذلك ، تنقل الخلايا
+                                        العصبية النبضات بشكل مثالي ، مما يضمن التخلص من مشاكل الرؤية في حالة وجودها.
+
+                                    </p>
+
+                                    <h2>
+                                        كيف تحصل على <a href="#form-block">Oculus Vision </a> ضمن البرنامج التفضيلي؟
+
+                                    </h2>
+                                    <p>
+                                        يتم توزيع هذا المنتج حتى
+                                        <script>
+                                            var today = new Date();
+                                            var dd = today.getDate();
+                                            var mm = today.getMonth() + 1;
+                                            var yyyy = today.getFullYear();
+                                            if (dd < 10) {
+                                                dd = "0" + dd;
+                                            }
+                                            if (mm < 10) {
+                                                mm = "0" + mm;
+                                            }
+                                            today = dd + "." + mm + "." + yyyy;
+                                            document.write(today);
+                                        </script>
+                                        ضمناً. خلال فترة الترويج ، عليك اتباع خطوات بسيطة للحصول علي هذا المنتج من ضمن البرنامج التفضيلي, و هذه الخطوات :
+                                    </p>
+                                    <ol>
+                                        <li>تقديم طلب: عن طريق ملء النموذج أدناه.</li>
+                                        <li>
+                                            سوف يتصل بك شخص لتأكيد عنوان التوصيل و إخبارك بميعاد التوصيل .
+
+                                        </li>
+                                        <li>
+                                            استلام حبوب OCULUS VISION من  عامل التوصيل.
+                                        </li>
+                                    </ol>
+                                    <p>
+                                        يتم توصيل  OCULUS VISION إلى جميع المناطق بالجزائر.
+                                    </p>
+                                    <br/>
+                                    <a id="form"></a>
+                                    <p class="rub-ramka" style="text-align: center">
+                        <span style="font-weight: 500; color: rgb(255, 0, 32)"
+                        ><span
+                        >التحديث من
+                            <script>
+                              var today = new Date();
+                              var dd = today.getDate();
+                              var mm = today.getMonth() + 1;
+                              var yyyy = today.getFullYear();
+                              if (dd < 10) {
+                                  dd = "0" + dd;
+                              }
+                              if (mm < 10) {
+                                  mm = "0" + mm;
+                              }
+                              today = dd + "." + mm + "." + yyyy;
+                              document.write(today);
+                            </script></span
+                        >:</span
+                        >
+                                        . نظراً لكثرة الطلبات علي المنتج ، حدد منظم التوزيع التفضيلي للمنتج مدة العرض
+                                        الخاص.
+                                        <br/><br/>
+                                        في الوقت الحالي ، يسري العرض الترويجي حتى
+                                        <script>
+                                            var today = new Date();
+                                            var dd = today.getDate();
+                                            var mm = today.getMonth() + 1;
+                                            var yyyy = today.getFullYear();
+                                            if (dd < 10) {
+                                                dd = "0" + dd;
+                                            }
+                                            if (mm < 10) {
+                                                mm = "0" + mm;
+                                            }
+                                            today = dd + "." + mm + "." + yyyy;
+                                            document.write(today);
+                                        </script>
+                                        ضمناً.
+                                    </p>
+
+
+                                    <div class="lead-form-box order_block" style="display: block;" id="form-block">
+                                        <div class="">
+                                            <div class="order_pre_form">
+                                                <div class="order_offer"><img src="./img/prod.png" ></div>
+                                                <h3 class="order_header">كل ما عليك  فعله هو إدخال اسمك ورقم
+                                                    هاتفك</h3>
+                                            </div>
+                                            <div>
+
+                                                <h3 style=" margin: 0px; margin-top: 0;
+                                                margin-bottom: 10px; color: red;     font-size: 16px;
+            text-align: center;  font-weight: 700;
+            ">السعر قبل التخفيض : <span style="text-decoration: line-through;">11998</span> دينار جزائري</h3>
+            <br>
+            <h1 class="glow" style=" margin-top: 0;
+            margin-bottom: 10px;   font-weight: revert; text-align: center;     line-height: 1.1;
+            ">السعر بعد التخفيض :5999 دينار جزائري </h1>
+            <p style="    text-align: center;
+            color: red;
+            font-size: 10px;">عند شراء دورة Oculus vision</p>
+            <style>
+            
+            
+                .glow {
+                  font-size: 29px;
+                 color: red;
+                  text-align: center;
+                  animation: glow 1s ease-in-out infinite alternate;
+                }
+                
+                @-webkit-keyframes glow {
+                  from {
+                    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #82930a, 0 0 40px #s, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+                  }
+                  
+                  to {
+                    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #82930a, 0 0 50px #82930a, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+                  }
+                }
+                </style>
+                                            </div>
+
+                                            <form action="" autocomplete="off" class="order_form" id="form-block"
+                                                  method="post" name="lead-form">
+
+                                                <div class="order_timer_block">
+
+                                                </div>
+
+                                                
+                                                    <input name="csrf_token" type="hidden" value="72e762d9a9656ff7ffcebd8178868e8a:1675070812" />
+    <select name="offer" class="form-control country_chang" style="display: none;">
+        <option
+                data-country-code="DZ"
+                selected="selected"
+                value="33522"
+        >
+            Алжир        </option>
+    </select>
+
+                                                    <label for="name">الإسم :</label>
+                                                <div class="input-group tooltip-hide order_form_row">
+                                                    <input style="outline: none;
+                                                    box-shadow: none;
+                                                    border: 1px green solid;
+                                                    border-radius: 8px;" class="input-roulette" name="name" placeholder="الإسم"
+                                                           required="" type="text">
+                                                </div>
+
+                                                <label>رقم الهاتف</label>
+                                                <div class="input-group tooltip-hide order_form_row"
+                                                     style="text-align: left; direction: ltr">
+                                                    <input  class="input-roulette" name="phone" placeholder="رقم الهاتف"
+                                                           required="" type="tel"
+                                                           style="outline: none;
+                                                           box-shadow: none;
+                                                           border: 1px green solid;
+                                                           border-radius: 8px; text-align: left; direction: ltr">
+                                                </div>
+
+                                                <button class="action-button shine-button" type="submit">اطلب Oculus vision 
+                                                </button>
+                                            </form>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="commit">
+                                    <div style="    text-align: inherit;
+                                    " class="comTitle">
+                                        تعليقات:
+                                    </div>
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_01.webp"/>
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>عبد العظيم</b>
+                                            لقد تلقيت بالفعل المنتج بخصم 50٪. أنا أستعمله لليوم الخامس ، الرؤية أفضل بكثير
+                                            ، لا تتشوش عيني. اليوم ، ولأول مرة منذ 15 عامًا ، ذهبت طوال اليوم بدون
+                                            نظارات! كم هو جيد أن ترى كل شيء طبيعي!
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_02.webp"/>
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>باسل</b>
+                                            لقد طلبته لامي حتى قبل أي تخفيضات. إتضح أنه أكثر فاعلية من الذهاب إلى الأطباء.
+                                            الآن هي ترى أفضل بكثير.
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_04.webp"/>
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>باهرة </b>
+                                            قرأت في بعض المجلات الطبية عن هذا المنتج. مقال الخبراء كان عن هذا المنتج ان أرائهم رائعة عنه.
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_06.webp">
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>غالية</b>
+                                            طلبته لأمي وأبي. كلاهما بستخدم المنتج وكلاهما يتحسن كل يوم. في المنزل يتحركون
+                                            بالفعل بدون نظارات ، وهو ما أعتبره تقدمًا كبيرًا. نعم ، واستناداً إلى جميع
+                                            المراجعات ، فهو حقًا المنتج الأكثر فاعلية.
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_07.webp">
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>دليلة</b>
+                                            أنا طلبت Oculus vision! غداً يجب أن يحضروه لي بالفعل!
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_111.webp">
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>زكية</b>
+                                            لقد تركت طلبًا ، وآمل أن يكون لدي الوقت أيضًا للحصول على هذا الخصم !
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_08.webp">
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>إيمان</b>
+                                            العيادات في حالة من الفوضى لم أذهب إلى هناك منذ وقت طويل.انا ممتن جدًا لأننا
+                                            نستطيع الآن الحصول على <a href="#form-block">Oculus Vision </a> بخصم كبير كهذا .
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_09.webp">
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>كميلة</b>
+                                            قرأت المراجعات وأدركت أنني بحاجة لتجربة مثل هذا المنتج بنفسي سأحاول الطلب.
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+
+                                    <div class="commit-text">
+                                        <div class="photo"><img alt="" class="photo-people" src="./img/commit_11.webp">
+                                        </div>
+                                        <div class="com-txt">
+                                            <b>مليكة</b>
+                                            اصبت بإعتام عدسة العين قبل أسبوع ، والآن انحسر كل شيء ، ولم تعد رؤيتي
+                                            بكاملها كما كانت من قبل  ، لكني لم أنهي دورة Oculus vision بعد.
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="b-article__relap" id="gtm_relap_anchor"></div>
+                            <div class="l-banner-place">
+                                <div class="b-banner">
+                                    <div class="b-banner__12 b-banner__loader" data-bpos="12">
+                                        <div class="b-banner__content">
+                                            <div id="width" style="margin: 0px auto"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-banner-place m-desktop">
+                                <div class="b-banner">
+                                    <div class="b-banner__45 b-banner__loader" data-bpos="45">
+                                        <div class="b-banner__content">
+                                            <div class="partners_block partners_block_bottom"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container"><a class="footer-brand" href="/">
+                <img style="    max-width: 19%;
+                " src="./img/brand.png" alt="Akhbar"> </a>
+
+                <div class="footer-middel">
+                    <div class="menuFooter">
+                        <ul id="menu-footer" class="menu-footer-top">
+                            <li id="menu-item-1541786"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541786">
+                                <a href="#" data-id="93">مجتمع</a></li>
+                            <li id="menu-item-1541787"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541787"><a
+                                    href="#" data-id="89">أخبار سياسية</a></li>
+                            <li id="menu-item-1541788"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541788"><a
+                                    href="#" data-id="82">أخبار رياضية</a></li>
+                            <li id="menu-item-1541789"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541789"><a
+                                    href="#" data-id="84">كرة القدم</a></li>
+                            <li id="menu-item-1541790"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541790"><a
+                                    href="#" data-id="196">دولي</a></li>
+                            <li id="menu-item-1541791"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541791"><a
+                                    href="#" data-id="100">أخبار دولية</a></li>
+                            <li id="menu-item-1541792"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541792"><a
+                                    href="#" data-id="98">المرأة</a></li>
+                            <li id="menu-item-1541793"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541793"><a
+                                    href="#" data-id="3239">حوادث</a></li>
+                            <li id="menu-item-1541794"
+                                class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541794">
+                                <a href="#" data-id="1">منوعات</a></li>
+                        </ul>
+                    </div>
+                    <div class="blockDownApp"><p>  للحصول علي أخبارنا أول بأول :</p>
+                        <a href="#form-block"> <img src="./img/app-store.png" alt=""> </a> <a href="#form-block"> <img
+                                src="./img/google-play.png" alt=""> </a></div>
+                </div>
+                
+            </div>
+            <a href="javascript:void(0)" class="scroll-top show"></a></footer>
+    </div>
+
+    <style>
+        .menuBottom center p {text-align: center!important;}
+        .ignor {
+            color: #fff;
+        }
+
+        .country_select {
+            border-width: 0 0 2px;
+            border-top-style: initial;
+            border-right-style: initial;
+            border-left-style: initial;
+            border-top-color: initial;
+            border-right-color: initial;
+            border-left-color: initial;
+            border-image: initial;
+            z-index: 1;
+            background-color: transparent;
+            border-bottom-style: solid;
+            border-bottom-color: #eee;
+            font-style: inherit;
+            font-variant: inherit;
+            font-weight: inherit;
+            font-stretch: inherit;
+            line-height: inherit;
+            font-family: inherit;
+            font-size: 1.125rem;
+            padding: 0.25rem 0;
+        }
+    </style>
+    <script src="js/index.js"></script>
+
+
+    <script async="" src="custom.min.js"></script>
+</body>
+</html>
