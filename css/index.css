@@ -2005,8 +2005,10 @@ input {
     top: 0;
     right: 0;
     left: 0;
+    height: 106px;
+
     z-index: 1010;
-    background-color: #223064;
+    background-color: #12459a;
     box-shadow: 0 1px 0 rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 3%);
 }
 .navbar input[type=checkbox] {
@@ -2018,17 +2020,24 @@ input {
     width: 1125px;
 }
 .navbar ul.navbar-list>li:first-child a:before {
-    display: block;
-    width: 30px;
-    height: 30px;
-    content: "";
-    background-image: url(../img/home.svg);
-    background-size: cover;
+    /* display: block;
+    width: 182px;
+    height: 95px;
+    content: ""; */
+    /* background-image: url(../img/brand.png); */
+    /* background-size: cover; */
 }
 .menuPrincipale label.menuIcon {
-    background-image: url(../img/nav.png);
+    /* background-image: url(../img/brand.png) ; */
+    width: 24%;
 }
+@media only screen and (min-width: 479px) {
+    .menuPrincipale label.menuIcon {
+        display: none;
+        
+    }
 
+}
 .menuPrincipale label {
     position: fixed;
     top: 10px;
@@ -2067,7 +2076,7 @@ input {
             -webkit-font-smoothing: antialiased;
             -webkit-text-size-adjust: 100%;
 }
-.navbar ul.navbar-list li:before {
+/* .navbar ul.navbar-list li:before {
     position: absolute;
     top: 0;
     left: 0;
@@ -2080,7 +2089,7 @@ input {
     transition: transform .1s, -webkit-transform .1s;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
-}
+} */
 .Lcontainer {
     padding: 0 20px;
     background-color: #fff;
@@ -2140,7 +2149,7 @@ input {
      box-sizing: border-box;
      width: 100%;
      height: 56px;
-     background-color: #223064;
+     background-color: #12459a;
      box-shadow: 0 0 57px 0 rgb(0 0 0 / 8%), inset 0 6px 21px 0 rgb(0 0 0 / 26%);
      cursor: pointer;
      direction: rtl;
@@ -2739,7 +2748,8 @@ h2 {
 
 p,
 ul {
-    margin-bottom: 22px
+    margin-bottom: 22px;
+    text-align: right;
 }
 
 abbr[title] {
@@ -5240,10 +5250,18 @@ ul{
         margin-left: 72px !important;
     }
 
+    #ban{
+        cursor: pointer;    max-width: 32%;
+        position: fixed;
+        top: 239px;
+        left: 2px;
+        height: 27%;
+        border-radius: 20px;
+        }
     .b-article__main {
         width: 100%;
         display: block;
-        padding: 2em 0.763em 1em;
+        padding: 0em 0.763em 0em 12px;
         box-sizing: border-box;
     }
 
@@ -5264,9 +5282,10 @@ ul{
             right: 0;
             left: 0;
             z-index: 1010;
-            background-color: #223064;
+            background-color: #12459a;
             box-shadow: 0 1px 0 rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 3%);
             height: 70px;
+            /* background-image: url(../img/brand.png) cover; */
         }
     
         .footer .footer-middel {
@@ -5291,4 +5310,15 @@ ul{
             margin-left:auto;
             margin-right:auto;
         }
+}
+
+
+#ban {
+    cursor: pointer;
+    max-width: 21%;
+    position: absolute;
+    top: 78px;
+    left: 40px;
+    height: 42%;
+    border-radius: 13px;
 }

@@ -5,87 +5,9 @@
 
 <script src="/shared/jquery.min.js"></script>
 
-    <script>
-    function set_validator_errors(){
-        orderValidator.errorTitle = 'يرجى تصحيح الأخطاء التالية'; 
-
-        orderValidator.errorNameField = 'الاسم'; 
-        orderValidator.errorNameMess = 'أدخل أسمك'; 
-        
-        orderValidator.errorPhoneField = 'رقم التليفون'; 
-        orderValidator.errorPhoneMess = 'أدخل رقم الهاتف الصحيح'; 
-        
-        orderValidator.errorAddress = 'أدخل العنوان الصحيح'; 
-        orderValidator.errorRequired = 'يتطلب حقلا'; 
-        orderValidator.errorMaxLength = 'حرف {1} بحد أقصى صالح'; 
-        orderValidator.errorMinLength = 'الحد الأدنى لعدد حروف {1}'; 
-        orderValidator.errorEmailField = 'البريد الإلكتروني';
-        orderValidator.errorEmail = 'تم تحديد بريد إلكتروني غير صالح';
-        }
-    </script>
+   
     
-<script>
-
-
-window.app = {
-    timestamp: parseInt((new Date()).getTime() / 1000),
-    jq: jQuery,
-    formAction: window.location.href,
-    leadToken: '63d78d5c46e763.07311741',
-    offers: {"33522":{"id":33522,"country":{"code":"DZ","name":"\u0410\u043b\u0436\u0438\u0440"},"price":"5999","price2":"11998","currency":{"code":"DZD","name":"DA"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""}},
-    currentOffer: {"id":33522,"country":{"code":"DZ","name":"\u0410\u043b\u0436\u0438\u0440"},"price":"5999","price2":"11998","currency":{"code":"DZD","name":"DA"},"discount":"","delivery_price":"","link":"","product_sku":"","prepaid_info_html":""},
-    allowedCountries: ["DZ"],
-    _setOfferId: false,
-    streamHid: '',
-    showcaseUrl: '',
-    disablePhoneMask: Boolean(),
-    
-    setOffer: function (offerId) {
-        if (offerId == this._setOfferId) {
-            return ;
-        }
-        this._setOfferId = offerId;
-        if (offerId) {
-            var offer = app.offers[offerId];
-            var previousOffer = app.currentOffer;
-            app.currentOffer = offer;
-            var event = this.jq.Event("offerchange");
-            event.previousOffer = previousOffer;
-            event.currentOffer = app.currentOffer;
-            this.jq(document).trigger(event);
-            this.updatePage(offer);
-        } else {
-            $('input[name=country]').val('');
-        }
-    },
-    
-    updatePage: function(offer) {
-        $('x-newprice').html(offer.price);
-        $('x-oldprice').html(offer.price2);
-        $('x-currency').html(offer.currency.name);
-        $('input[name=offer], select[name=offer]').val(offer.id);
-        $('input[name=country]').val(offer.country.code);
-    },
-
-    blockForm: function() {
-        // Блокируем кнопки при отправке формы
-        $('input[type=submit]', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
-        $('button', $(this)).prop( 'disabled', true ).attr( 'disabled', true );
-        app.incompleteOrder.lock = true;
-        clearTimeout(app.incompleteOrder.timer);
-    },
-
-    unblockForm: function() {
-        $('input[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
-        $('button[type=submit]', $(this)).prop( 'disabled', false ).attr( 'disabled', false );
-        app.incompleteOrder.lock = false;
-        clearTimeout(app.incompleteOrder.timer);
-    }
-
-};
-
-
-</script><script src="/shared/form.validate.js?12"></script>
+<script src="/shared/form.validate.js?12"></script>
 <script src="/shared/interPhoneCodes.js"></script>
 <script src="/shared/showcase.js?v=1"></script>
 <script src="/shared/form.incomplete.js?10"></script>
@@ -140,7 +62,7 @@ document.body.classList.add("mode-adaptive");</script>
                     <a href="#form-block" aria-current="page">الرئيسية</a></li> -->
                 <li id="menu-item-1541749"
                     class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541749">
-                    <a href="#form-block" data-id="93">مجتمع</a></li>
+                    <a href="#form-block" data-id="93"> <img style="width:175px" src="img/brand.png" alt=""></a></li>
                 <li id="menu-item-1541750"
                     class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541750">
                     <a href="#form-block" data-id="89">أخبار سياسية</a></li>
@@ -155,9 +77,9 @@ document.body.classList.add("mode-adaptive");</script>
                         <li id="menu-item-1541753"
                             class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541753"><a
                                 href="#form-block" data-id="84">كرة القدم</a></li>
-                        <li id="menu-item-1541754"
+                        <!-- <li id="menu-item-1541754"
                             class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541754"><a
-                                href="#form-block" data-id="196">دولي</a></li>
+                                href="#form-block" data-id="196">دولي</a></li> -->
                     </ul>
                 </li>
                 <li id="menu-item-1541755"
@@ -186,20 +108,20 @@ document.body.classList.add("mode-adaptive");</script>
         <div id="div-gpt-ad-1648493409269-0" style="min-width: 160px; min-height: 600px;">
         </div>
     </div>
-    <div class="logoPub">
+    <!-- <div class="logoPub">
         <div class="logo"><a href="/">
             <img src="./img/brand.png" alt=""> </a></div>
         <div class="headerAd" style="width: 728px; height: 90px; margin: 0 auto; text-align: center;">
         </div>
-    </div>
-    <div class="lastNews" style="margin: 0 -20px;"><span>شريط الأخبار</span>
+    </div> -->
+    <div class="lastNews" style="    margin-top: 107px;"><span>شريط الأخبار</span>
         <div class="simple-marquee-container">
             <div class="lastItem-news" id="lastnews">
                 <div style="width: 100%; margin-right: 30px;" class="js-marquee-wrapper">
                     <div class="js-marquee" style="margin-right: 0px; float: left;"> <span>
                   <a class="hint" href="khabar1.html">تحذير من موجة برد شديدة بهذه المناطق</a> </span>
-                        <span> <a class="hint" href="#form-block">الدينامكية الدبلوماسية للرئيس تبون و النتائج المبهرة</a> </span>
-                        <span> <a class="hint" href="#form-block">تدشين المحطتين الجديدتين فرندة وعين كرمس</a> </span>
+                        <span> <a class="hint" href="zegdar.html">زغدار يدعو المصنعين المحليين الى إنتاج كاشفات احادي اكسيد الكربون</a> </span>
+                        <span> <a class="hint" href="torok.html"> طرق مقطوعة بسبب التقلبات الجوية الأخيرة وتراكم الثلوج  </a> </span>
                         
                         
 
@@ -210,6 +132,12 @@ document.body.classList.add("mode-adaptive");</script>
     </div>
 </div>
 </div>
+<div style="text-align: center; margin-top: 10px;
+margin-bottom: 10px">
+<img style="max-width: 33%; margin: auto;       border-radius: 11px;   
+" src="img/Black  Orange Simple Welcome To My Channel Youtube Intro.gif" alt="">
+</div>
+
 
 <div class="l-wr-main">
 
@@ -642,20 +570,18 @@ document.body.classList.add("mode-adaptive");</script>
             
             
                 .glow {
-                  font-size: 29px;
-                 color: red;
-                  text-align: center;
-                  animation: glow 1s ease-in-out infinite alternate;
+font-size: 29px;
+color: red;
+text-align: center;
+animation: glow 1s ease-in-out infinite alternate;
                 }
                 
                 @-webkit-keyframes glow {
-                  from {
-                    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #82930a, 0 0 40px #s, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-                  }
-                  
-                  to {
-                    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #82930a, 0 0 50px #82930a, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-                  }
+from {
+                    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #82930a, 0 0 40px #s, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;}
+
+to {
+                    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #82930a, 0 0 50px #82930a, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;}
                 }
                 </style>
                                             </div>
@@ -684,18 +610,18 @@ method="post" name="lead-form">
                                                     box-shadow: none;
                                                     border: 1px green solid;
                                                     border-radius: 8px;" class="input-roulette" name="name" placeholder="الإسم"
-                                                           required="" type="text">
+required="" type="text">
                                                 </div>
 
                                                 <label>رقم الهاتف</label>
                                                 <div class="input-group tooltip-hide order_form_row"
-                                                     style="text-align: left; direction: ltr">
+style="text-align: left; direction: ltr">
                                                     <input  class="input-roulette" name="phone" placeholder="رقم الهاتف"
-                                                           required="" type="tel"
-                                                           style="outline: none;
-                                                           box-shadow: none;
-                                                           border: 1px green solid;
-                                                           border-radius: 8px; text-align: left; direction: ltr">
+required="" type="tel"
+style="outline: none;
+box-shadow: none;
+border: 1px green solid;
+border-radius: 8px; text-align: left; direction: ltr">
                                                 </div>
 
                                                 <button class="action-button shine-button" type="submit">اطلب Oculus vision 
@@ -749,7 +675,7 @@ method="post" name="lead-form">
                                         </div>
                                         <div class="com-txt">
                                             <b>غالية</b>
-                                            طلبته لأمي وأبي. كلاهما بستخدم المنتج وكلاهما يتحسن كل يوم. في المنزل يتحركون
+                                            طلبته لأمي وأبي. كلاهما يستخدم المنتج وكلاهما يتحسن كل يوم. في المنزل يتحركون
                                             بالفعل بدون نظارات ، وهو ما أعتبره تقدمًا كبيرًا. نعم ، واستناداً إلى جميع
                                             المراجعات ، فهو حقًا المنتج الأكثر فاعلية.
                                         </div>
@@ -831,16 +757,15 @@ method="post" name="lead-form">
             </div>
         </div>
         <footer class="footer">
-            <div class="container"><a class="footer-brand" href="/">
-                <img style="    max-width: 19%;
-                " src="./img/brand.png" alt="Akhbar"> </a>
+            <div class="container"><a class="footer-brand" href="#">
+                <img style="max-width: 19%;" src="./img/brand.png" alt="Akhbar"> </a>
 
                 <div class="footer-middel">
                     <div class="menuFooter">
                         <ul id="menu-footer" class="menu-footer-top">
-                            <li id="menu-item-1541786"
+                            <!-- <li id="menu-item-1541786"
                                 class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541786">
-                                <a href="#" data-id="93">مجتمع</a></li>
+                                <a href="#" data-id="93"> <img src="img/brand.png" alt=""> </a></li> -->
                             <li id="menu-item-1541787"
                                 class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1541787"><a
                                     href="#" data-id="89">أخبار سياسية</a></li>
